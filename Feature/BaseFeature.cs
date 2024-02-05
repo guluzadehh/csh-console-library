@@ -4,7 +4,7 @@ public abstract class BaseFeature : IFeature
 {
     public IApp App { get; set; }
 
-    protected string QuitCommand { get; } = "quit";
+    protected virtual string QuitCommand { get; } = "quit";
 
     public abstract void Run();
 
@@ -12,7 +12,7 @@ public abstract class BaseFeature : IFeature
     {
         string input = App.Input.Get();
 
-        if (input.Equals("quit", StringComparison.CurrentCultureIgnoreCase))
+        if (input.Equals(QuitCommand, StringComparison.CurrentCultureIgnoreCase))
         {
             throw new QuitInputRead();
         }
