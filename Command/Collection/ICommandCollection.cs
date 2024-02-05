@@ -1,7 +1,8 @@
-namespace CommandApp;
-
-public interface ICommandCollection : IEnumerable<ICommand>
+namespace CommandApp.Command
 {
-    List<ICommand> Commands { get; }
-    void Register(ICommand command);
+    public interface ICommandCollection : IEnumerable<ICommand>
+    {
+        List<ICommand> Commands { get; }
+        void Register(ICommand command);
+    }
 }

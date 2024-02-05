@@ -1,10 +1,11 @@
-namespace CommandApp;
-
-public interface IAppOutput
+namespace CommandApp.IO
 {
-    void WriteAndWait(string data);
-    void ClearAndWrite(string data);
-    void Wait();
-    void Write(string data);
-    void Clear();
+    public interface IAppOutput
+    {
+        void WriteAndWait(string data);
+        void ClearAndWrite(string data);
+        void Wait();
+        void Write(string data);
+        void Clear();
+    }
 }

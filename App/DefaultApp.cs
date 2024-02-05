@@ -1,16 +1,21 @@
-namespace CommandApp;
-
-public class DefaultApp(ICommandCollection commands) : BaseApp
+namespace CommandApp.App
 {
-    public override ICommandCollection Commands { get; } = commands;
+    using Command;
+    using Dispatcher;
+    using IO;
 
-    public override IDispatcher Dispatcher { get; } = new DefaultDispatcher(commands);
+    public class DefaultApp(ICommandCollection commands) : BaseApp
+    {
+        public override ICommandCollection Commands { get; } = commands;
 
-    public override ICommandOutput CommandOutput { get; } = new DefaultCommandOutput();
+        public override IDispatcher Dispatcher { get; } = new DefaultDispatcher(commands);
 
-    public override IAppOutput Output { get; } = new DefaultAppOutput();
-    public override IAppInput Input { get; } = new DefaultAppInput();
+        public override ICommandOutput CommandOutput { get; } = new DefaultCommandOutput();
 
-    public override Dictionary<string, object> Context { get; } = [];
+        public override IAppOutput Output { get; } = new IO.DefaultAppOutput();
+        public override IAppInput Input { get; } = new IO.DefaultAppInput();
 
+        public override Dictionary<string, object> Context { get; } = [];
+
+    }
 }

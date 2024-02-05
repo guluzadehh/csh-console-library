@@ -1,6 +1,7 @@
-namespace CommandApp;
-
-public class DefaultAppOutput : BaseAppOutput
+namespace CommandApp.IO
 {
-    public override string WaitText { get; } = "Press enter to continue...";
+    public class DefaultAppOutput : BaseAppOutput
+    {
+        public override string WaitText { get; } = "Press enter to continue...";
+    }
 }

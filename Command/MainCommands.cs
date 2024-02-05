@@ -1,13 +1,16 @@
-namespace CommandApp;
-
-public class QuitCommand : ICommand
+namespace CommandApp.Command
 {
-    public string Value { get; } = "quit";
+    using App;
 
-    public string Description { get; } = "Quit app";
-
-    public void Execute(IApp app)
+    public class QuitCommand : ICommand
     {
-        app.Running = false;
+        public string Value { get; } = "quit";
+
+        public string Description { get; } = "Quit app";
+
+        public void Execute(IApp app)
+        {
+            app.Running = false;
+        }
     }
 }

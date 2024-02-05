@@ -1,9 +1,12 @@
-namespace CommandApp;
-
-public interface ICommand
+namespace CommandApp.Command
 {
-    string Value { get; }
-    string Description { get; }
+    using App;
 
-    void Execute(IApp app);
+    public interface ICommand
+    {
+        string Value { get; }
+        string Description { get; }
+
+        void Execute(IApp app);
+    }
 }

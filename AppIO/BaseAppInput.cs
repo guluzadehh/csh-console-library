@@ -1,18 +1,19 @@
-namespace CommandApp;
-
-public abstract class BaseAppInput : IAppInput
+namespace CommandApp.IO
 {
-    public abstract string InputText { get; }
-
-    public string Get()
+    public abstract class BaseAppInput : IAppInput
     {
-        Console.SetCursorPosition(0, Console.WindowHeight);
-        Console.Write(InputText + " ");
+        public abstract string InputText { get; }
 
-        string? input = Console.ReadLine() ?? throw new Exception("Input can't be null");
+        public string Get()
+        {
+            Console.SetCursorPosition(0, Console.WindowHeight);
+            Console.Write(InputText + " ");
 
-        Console.Clear();
+            string? input = Console.ReadLine() ?? throw new Exception("Input can't be null");
 
-        return input;
+            Console.Clear();
+
+            return input;
+        }
     }
 }

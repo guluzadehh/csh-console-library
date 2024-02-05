@@ -1,6 +1,7 @@
-namespace CommandApp;
-
-public interface IAppInput
+namespace CommandApp.IO
 {
-    string Get();
+    public interface IAppInput
+    {
+        string Get();
+    }
 }

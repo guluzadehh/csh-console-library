@@ -1,22 +1,23 @@
 using System.Collections;
 
-namespace CommandApp;
-
-public class BaseCommandCollection : ICommandCollection
+namespace CommandApp.Command
 {
-    public virtual List<ICommand> Commands { get; } = [];
-    public void Register(ICommand command)
+    public class BaseCommandCollection : ICommandCollection
     {
-        Commands.Add(command);
-    }
+        public virtual List<ICommand> Commands { get; } = [];
+        public void Register(ICommand command)
+        {
+            Commands.Add(command);
+        }
 
-    public IEnumerator<ICommand> GetEnumerator()
-    {
-        return Commands.GetEnumerator();
-    }
+        public IEnumerator<ICommand> GetEnumerator()
+        {
+            return Commands.GetEnumerator();
+        }
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        return Commands.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return Commands.GetEnumerator();
+        }
     }
 }

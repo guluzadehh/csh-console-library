@@ -1,6 +1,7 @@
-namespace CommandApp;
-
-public class DefaultAppInput : BaseAppInput
+namespace CommandApp.IO
 {
-    public override string InputText { get; } = ":";
+    public class DefaultAppInput : BaseAppInput
+    {
+        public override string InputText { get; } = ":";
+    }
 }

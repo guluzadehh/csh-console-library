@@ -1,27 +1,30 @@
-namespace CommandApp;
-
-public abstract class BaseFeature : IFeature
+namespace CommandApp.Feature
 {
-    public IApp App { get; set; }
+    using App;
 
-    protected virtual string QuitCommand { get; } = "quit";
-
-    public abstract void Run();
-
-    protected string GetInput()
+    public abstract class BaseFeature : IFeature
     {
-        string input = App.Input.Get();
+        public IApp App { get; set; }
 
-        if (input.Equals(QuitCommand, StringComparison.CurrentCultureIgnoreCase))
+        protected virtual string QuitCommand { get; } = "quit";
+
+        public abstract void Run();
+
+        protected string GetInput()
         {
-            throw new QuitInputRead();
+            string input = App.Input.Get();
+
+            if (input.Equals(QuitCommand, StringComparison.CurrentCultureIgnoreCase))
+            {
+                throw new Exceptions.QuitInputRead();
+            }
+
+            return input;
         }
 
-        return input;
-    }
-
-    protected void SendResponse(string data)
-    {
-        App.Output.WriteAndWait(data);
+        protected void SendResponse(string data)
+        {
+            App.Output.WriteAndWait(data);
+        }
     }
 }

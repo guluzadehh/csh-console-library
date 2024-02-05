@@ -1,7 +1,11 @@
 
-namespace CommandApp;
-
-public class DefaultDispatcher(ICommandCollection commands) : BaseDispatcher(commands)
+namespace CommandApp.Dispatcher
 {
-    protected override Type ExceptionType { get; } = typeof(CommandNotFound);
+    using Command;
+    using Exceptions;
+
+    public class DefaultDispatcher(ICommandCollection commands) : BaseDispatcher(commands)
+    {
+        protected override Type ExceptionType { get; } = typeof(CommandNotFound);
+    }
 }

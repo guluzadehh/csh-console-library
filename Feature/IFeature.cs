@@ -1,7 +1,10 @@
-namespace CommandApp;
-
-public interface IFeature
+namespace CommandApp.Feature
 {
-    IApp App { get; set; }
-    void Run();
+    using App;
+
+    public interface IFeature
+    {
+        IApp App { get; set; }
+        void Run();
+    }
 }

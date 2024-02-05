@@ -1,6 +1,7 @@
-namespace CommandApp;
-
-public interface ICommandOutput
+namespace CommandApp.Command
 {
-    string Display(ICommand command);
+    public interface ICommandOutput
+    {
+        string Display(ICommand command);
+    }
 }

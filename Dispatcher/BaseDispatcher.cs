@@ -1,25 +1,29 @@
-namespace CommandApp;
-
-public abstract class BaseDispatcher(ICommandCollection commands) : IDispatcher
+namespace CommandApp.Dispatcher
 {
-    public ICommandCollection Commands { get; } = commands;
-    protected abstract Type ExceptionType { get; }
+    using Command;
+    using App;
 
-    public void Dispatch(string value, IApp app)
+    public abstract class BaseDispatcher(ICommandCollection commands) : IDispatcher
     {
-        FindCommand(value).Execute(app);
-    }
+        public ICommandCollection Commands { get; } = commands;
+        protected abstract Type ExceptionType { get; }
 
-    protected ICommand FindCommand(string value)
-    {
-        foreach (ICommand command in Commands)
+        public void Dispatch(string value, IApp app)
         {
-            if (command.Value == value)
-            {
-                return command;
-            }
+            FindCommand(value).Execute(app);
         }
 
-        throw (Exception)Activator.CreateInstance(ExceptionType, value)!;
+        protected ICommand FindCommand(string value)
+        {
+            foreach (ICommand command in Commands)
+            {
+                if (command.Value == value)
+                {
+                    return command;
+                }
+            }
+
+            throw (Exception)Activator.CreateInstance(ExceptionType, value)!;
+        }
     }
 }

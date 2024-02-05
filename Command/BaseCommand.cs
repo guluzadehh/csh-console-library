@@ -1,15 +1,19 @@
-namespace CommandApp;
-
-public abstract class BaseCommand : ICommand
+namespace CommandApp.Command
 {
-    public abstract string Value { get; }
-    public abstract string Description { get; }
+    using App;
+    using Feature;
 
-    public abstract IFeature Feature { get; }
-
-    public void Execute(IApp app)
+    public abstract class BaseCommand : ICommand
     {
-        Feature.App = app;
-        Feature.Run();
+        public abstract string Value { get; }
+        public abstract string Description { get; }
+
+        public abstract IFeature Feature { get; }
+
+        public void Execute(IApp app)
+        {
+            Feature.App = app;
+            Feature.Run();
+        }
     }
 }

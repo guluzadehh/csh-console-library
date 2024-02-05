@@ -1,7 +1,11 @@
-namespace CommandApp;
-
-public interface IDispatcher
+namespace CommandApp.Dispatcher
 {
-    ICommandCollection Commands { get; }
-    void Dispatch(string value, IApp app);
+    using Command;
+    using App;
+
+    public interface IDispatcher
+    {
+        ICommandCollection Commands { get; }
+        void Dispatch(string value, IApp app);
+    }
 }

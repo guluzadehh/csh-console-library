@@ -1,8 +1,9 @@
-namespace CommandApp;
-
-public class DefaultCommandCollection : BaseCommandCollection
+namespace CommandApp.Command
 {
-    public override List<ICommand> Commands { get; } = [
-        new QuitCommand(),
+    public class DefaultCommandCollection : BaseCommandCollection
+    {
+        public override List<ICommand> Commands { get; } = [
+            new QuitCommand(),
     ];
+    }
 }

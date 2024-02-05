@@ -1,9 +1,10 @@
-namespace CommandApp;
-
-public class DefaultCommandOutput : ICommandOutput
+namespace CommandApp.Command
 {
-    public string Display(ICommand command)
+    public class DefaultCommandOutput : ICommandOutput
     {
-        return $"{command.Value} - {command.Description}";
+        public string Display(ICommand command)
+        {
+            return $"{command.Value} - {command.Description}";
+        }
     }
 }
