@@ -1,4 +1,8 @@
-namespace CommandApp;
+namespace CommandApp.Exceptions;
+
+public class QuitInputRead : Exception
+{
+}
 
 public class CommandNotFound(string value) : Exception
 {
