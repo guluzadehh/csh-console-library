@@ -4,6 +4,8 @@ namespace CommandApp.IO
     {
         public abstract string InputText { get; }
 
+        public abstract string QuitCommand { get; }
+
         public string Get()
         {
             Console.SetCursorPosition(0, Console.WindowHeight);
@@ -13,7 +15,17 @@ namespace CommandApp.IO
 
             Console.Clear();
 
+            ValidateInput(input);
+
             return input;
+        }
+
+        protected virtual void ValidateInput(string input)
+        {
+            if (input.Equals(QuitCommand, StringComparison.CurrentCultureIgnoreCase))
+            {
+                throw new Exceptions.QuitInputRead();
+            }
         }
     }
 }
