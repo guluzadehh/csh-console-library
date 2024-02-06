@@ -10,18 +10,6 @@ namespace CommandApp.Feature
 
         public abstract void Run();
 
-        protected string GetInput()
-        {
-            string input = App.Input.Get();
-
-            if (input.Equals(QuitCommand, StringComparison.CurrentCultureIgnoreCase))
-            {
-                throw new Exceptions.QuitInputRead();
-            }
-
-            return input;
-        }
-
         protected void SendResponse(string data)
         {
             App.Output.WriteAndWait(data);
