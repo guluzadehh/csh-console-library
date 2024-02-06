@@ -6,8 +6,6 @@ namespace CommandApp.Feature
     {
         public IApp App { get; set; }
 
-        protected virtual string QuitCommand { get; } = "quit";
-
         public abstract void Run();
 
         protected void SendResponse(string data)
