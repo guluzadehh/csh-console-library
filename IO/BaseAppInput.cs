@@ -6,9 +6,14 @@ namespace CommandApp.IO
 
         public abstract string QuitCommand { get; }
 
-        public string Get()
+        public string Get(string? infoText = null)
         {
             Console.SetCursorPosition(0, Console.WindowHeight);
+            if (infoText != null)
+            {
+                Console.Write(infoText);
+            }
+
             Console.Write(InputText + " ");
 
             string input = Console.ReadLine() ?? throw new Exceptions.BaseException("Input can't be null");
