@@ -11,7 +11,7 @@ namespace CommandApp.IO
             Console.SetCursorPosition(0, Console.WindowHeight);
             Console.Write(InputText + " ");
 
-            string? input = Console.ReadLine() ?? throw new Exception("Input can't be null");
+            string? input = Console.ReadLine() ?? throw new Exceptions.BaseException("Input can't be null");
 
             Console.Clear();
 

@@ -13,7 +13,20 @@ namespace CommandApp.Command
         public void Execute(IApp app)
         {
             Feature.App = app;
-            Feature.Run();
+
+            try
+            {
+                Feature.Run();
+            }
+            catch (Exceptions.QuitInputRead)
+            {
+                return;
+            }
+            catch (Exceptions.BaseException exc)
+            {
+                app.Output.WriteAndWait(exc.Message);
+                return;
+            }
         }
     }
 }
