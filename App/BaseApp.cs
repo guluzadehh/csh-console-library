@@ -23,15 +23,18 @@ namespace CommandApp.App
 
                 DisplayCommands();
 
-                string input = Input.Get();
-
                 try
                 {
+                    string input = Input.Get();
                     Dispatcher.Dispatch(input, this);
                 }
                 catch (CommandNotFound exc)
                 {
                     Output.WriteAndWait(exc.Message);
+                }
+                catch (QuitInputRead)
+                {
+                    return;
                 }
             }
         }
