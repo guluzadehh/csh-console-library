@@ -16,9 +16,13 @@ namespace CommandApp.IO
 
             Console.Write(InputText + " ");
 
-            string input = Console.ReadLine() ?? throw new Exceptions.BaseException("Input can't be null");
-
+            string? input = Console.ReadLine();
             Console.Clear();
+
+            if (input == null)
+            {
+                throw new Exceptions.BaseException("Input can't be null");
+            }
 
             ValidateInput(input);
 

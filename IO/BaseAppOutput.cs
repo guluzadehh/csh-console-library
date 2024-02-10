@@ -6,7 +6,7 @@ namespace CommandApp.IO
 
         public void ClearAndWrite(string data)
         {
-            Console.Clear();
+            Clear();
             Write(data);
         }
 
@@ -14,7 +14,7 @@ namespace CommandApp.IO
         {
             Write(WaitText);
             Console.ReadLine();
-            Console.Clear();
+            Clear();
         }
 
         public void WriteAndWait(string data)
