@@ -15,7 +15,7 @@ namespace CommandApp.App
         public override IAppOutput Output { get; } = new IO.DefaultAppOutput();
         public override IAppInput Input { get; } = new IO.DefaultAppInput();
 
-        public override Dictionary<string, object> Context { get; } = [];
+        public override Dictionary<string, object?> Context { get; } = [];
 
     }
 }
