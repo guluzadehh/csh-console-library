@@ -12,7 +12,7 @@ namespace CommandApp.App
         ICommandOutput CommandOutput { get; }
         IAppOutput Output { get; }
         IAppInput Input { get; }
-        Dictionary<string, object> Context { get; }
+        Dictionary<string, object?> Context { get; }
         void Start();
     }
 }
