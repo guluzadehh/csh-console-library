@@ -13,7 +13,7 @@ namespace CommandApp.App
         public abstract ICommandOutput CommandOutput { get; }
         public abstract IAppInput Input { get; }
         public abstract IAppOutput Output { get; }
-        public abstract Dictionary<string, object> Context { get; }
+        public abstract Dictionary<string, object?> Context { get; }
 
         public void Start()
         {
